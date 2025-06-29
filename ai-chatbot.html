@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Chatbot - Smart Healthcare</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8e7e9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      border: 2px solid #800000;
+    }
+    h2 {
+      text-align: center;
+      color: white;
+      background-color: #800000;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #c09090;
+    }
+    button {
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #800000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+    }
+    button:hover {
+      background: #5a0000;
+    }
+    .back-btn {
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px;
+      background: #b54a4a;
+      color: white;
+      border-radius: 6px;
+    }
+    .back-btn:hover {
+      background: #902e2e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Borang Temu Janji</h2>
+    <form id="appointmentForm">
+      <label>Nama:</label>
+      <input type="text" id="appName" required>
+
+      <label>Telefon:</label>
+      <input type="text" id="appPhone" required>
+
+      <label>Negeri:</label>
+      <select id="appState" required>
+        <option value="">--Pilih Negeri--</option>
+        <option value="kelantan">Kelantan</option>
+        <option value="selangor">Selangor</option>
+        <option value="johor">Johor</option>
+        <option value="penang">Pulau Pinang</option>
+        <option value="perak">Perak</option>
+        <option value="sabah">Sabah</option>
+        <option value="sarawak">Sarawak</option>
+        <option value="melaka">Melaka</option>
+        <option value="pahang">Pahang</option>
+        <option value="kedah">Kedah</option>
+        <option value="negeri sembilan">Negeri Sembilan</option>
+        <option value="terengganu">Terengganu</option>
+        <option value="perlis">Perlis</option>
+        <option value="putrajaya">Putrajaya</option>
+        <option value="labuan">Labuan</option>
+      </select>
+
+      <label>Tarikh Temu Janji:</label>
+      <input type="date" id="appDate" required>
+
+      <label>Klinik/Hospital Disyorkan:</label>
+      <input type="text" id="appClinic" readonly>
+
+      <button type="submit">Hantar</button>
+    </form>
+
+    <a href="index.html" class="back-btn">← Back to Homepage</a>
+  </div>
+
+  <!-- Noupe External Chatbot Script -->
+  <script src='https://www.noupe.com/embed/0197bbc48c0d730a89b9013fe15704657bfa.js'></script>
+
+  <script>
+    // Auto-fill recommended clinic based on selected state
+    document.getElementById('appState').addEventListener('change', function () {
+      const state = this.value.toLowerCase();
+      const clinics = {
+        "kelantan": "Klinik Kesihatan Beris Panchor, HRPZ II",
+        "selangor": "Klinik Kesihatan Shah Alam, KPJ Hospital",
+        "johor": "Klinik Kesihatan Tampoi, Hospital Sultanah Aminah",
+        "penang": "Klinik Jalan Perak, Hospital Pulau Pinang",
+        "perak": "KK Greentown, Hospital Raja Permaisuri Bainun",
+        "sabah": "KK Likas, Hospital Queen Elizabeth",
+        "sarawak": "KK Petra Jaya, Hospital Umum Sarawak",
+        "melaka": "KK Ayer Keroh, Hospital Melaka",
+        "pahang": "KK Kuantan, Hospital Tengku Ampuan Afzan",
+        "kedah": "KK Alor Setar, Hospital Sultanah Bahiyah",
+        "negeri sembilan": "KK Seremban, Hospital Tuanku Ja'afar",
+        "terengganu": "KK Kuala Terengganu, Hospital Sultanah Nur Zahirah",
+        "perlis": "KK Kangar, Hospital Tuanku Fauziah",
+        "putrajaya": "Presint 9 Health Clinic, Hospital Putrajaya",
+        "labuan": "Labuan Health Clinic, Hospital Labuan"
+      };
+      document.getElementById('appClinic').value = clinics[state] || '';
+    });
+
+    // Store appointment submission in localStorage
+    document.getElementById('appointmentForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const appointment = {
+        name: document.getElementById('appName').value,
+        phone: document.getElementById('appPhone').value,
+        state: document.getElementById('appState').value,
+        date: document.getElementById('appDate').value,
+        clinic: document.getElementById('appClinic').value
+      };
+      let allAppointments = JSON.parse(localStorage.getItem('appointments')) || [];
+      allAppointments.push(appointment);
+      localStorage.setItem('appointments', JSON.stringify(allAppointments));
+      alert("Temu janji berjaya dihantar. Terima kasih!");
+      document.getElementById('appointmentForm').reset();
+      document.getElementById('appClinic').value = '';
+    });
+  </script>
+</body>
+</html>
