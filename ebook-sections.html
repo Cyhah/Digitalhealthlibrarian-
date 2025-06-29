@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>eBooks - Smart HealthCare Info Hub</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.postimg.cc/T1Z1pG2r/healthcare-tech.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #80263a;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+    nav a button {
+      background-color: #80263a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    nav a button:hover {
+      background-color: #c94c4c;
+      transform: translateY(-3px);
+    }
+    .language-toggle {
+      background-color: #fceef1;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    .language-toggle button {
+      background-color: #fff5e1;
+      border: 2px solid #80263a;
+      color: #80263a;
+      padding: 8px 16px;
+      margin: 5px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .language-toggle button:hover {
+      background-color: #f7cac9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+    h2 {
+      text-align: center;
+      color: #80263a;
+    }
+    .category {
+      margin-top: 40px;
+    }
+    .ebook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .ebook-item {
+      background-color: #fff5f7;
+      border: 1px solid #f3d1d8;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .ebook-item h4 {
+      color: #7a1f3d;
+    }
+    .ebook-item a {
+      text-decoration: none;
+      color: #b30047;
+      font-weight: bold;
+      display: block;
+      margin-top: 8px;
+    }
+    .bm { display: none; }
+  </style>
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.en').forEach(e => e.style.display = lang === 'en' ? 'block' : 'none');
+      document.querySelectorAll('.bm').forEach(e => e.style.display = lang === 'bm' ? 'block' : 'none');
+    }
+    window.onload = () => switchLanguage('en');
+  </script>
+</head>
+<body>
+<div class="overlay">
+<header>
+  <nav>
+    <div>
+      <a href="index.html"><button>Home</button></a>
+      <a href="about.html"><button>About</button></a>
+      <a href="contact.html"><button>Contact</button></a>
+      <a href="services.html"><button>Services</button></a>
+      <a href="resources.html"><button>Resources</button></a>
+      <a href="event.html"><button>Events</button></a>
+      <a href="ebooks.html"><button>eBooks</button></a>
+      <a href="Healthvideocollection.html"><button>Health Video Collections</button></a>
+      <a href="ai-chatbot.html"><button>AI Chatbot</button></a>
+    </div>
+    <div class="language-toggle">
+      <button onclick="switchLanguage('en')">English</button>
+      <button onclick="switchLanguage('bm')">BM</button>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <h2 class="en">Explore Health eBooks by Category</h2>
+  <h2 class="bm">Terokai eBuku Kesihatan Mengikut Kategori</h2>
+  <div class="category">
+    <h3 class="en">Nutrition</h3>
+    <h3 class="bm">Pemakanan</h3>
+    <div class="ebook-grid">
+      <div class="ebook-item">
+        <h4>Healthy Living eBook</h4>
+        <a href="https://www.scribd.com/document/368707025/Healthy-Living-eBook" target="_blank">View</a>
+      </div>
+      <div class="ebook-item">
+        <h4>Elsevier Nutrition eBooks</h4>
+        <a href="https://www.mea.elsevierhealth.com/nursing-midwifery/nutrition" target="_blank">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="category">
+    <h3 class="en">Public Health</h3>
+    <h3 class="bm">Kesihatan Awam</h3>
+    <div class="ebook-grid">
+      <div class="ebook-item">
+        <h4>My Life Well Loved – Digital Health Store</h4>
+        <a href="https://www.mylifewellloved.com/product-category/digital-products/" target="_blank">View</a>
+      </div>
+      <div class="ebook-item">
+        <h4>eBooks.com – Health & Fitness</h4>
+        <a href="https://www.ebooks.com/en-my/category/health-and-fitness/5296/" target="_blank">View</a>
+      </div>
+    </div>
+  </div>
+  <div class="category">
+    <h3 class="en">Medical Myths</h3>
+    <h3 class="bm">Mitos Perubatan</h3>
+    <div class="ebook-grid">
+      <div class="ebook-item">
+        <h4>MMGazette Medical Myths</h4>
+        <a href="https://www.mmgazette.com/e-books/" target="_blank">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

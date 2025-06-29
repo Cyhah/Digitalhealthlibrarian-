@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Events - Smart HealthCare Info Hub</title>
+  <style>
+    body {
+      font-family:'Segoe UI',sans-serif;
+      margin:0;padding:0;
+      background:url('https://i.postimg.cc/T1Z1pG2r/healthcare-tech.jpg') center/cover fixed;
+      color:#333;
+    }
+    .overlay {
+      background:rgba(255,255,255,0.9);
+      min-height:100vh;padding:20px;
+    }
+    header {
+      display:flex;justify-content:space-between;align-items:center;
+      background:#80263a;color:white;padding:20px;border-radius:12px;flex-wrap:wrap;
+    }
+    nav.main-nav a button {
+      background:#80263a;color:white;border:none;padding:10px 20px;
+      margin:6px;border-radius:8px;cursor:pointer;transition:0.3s;
+    }
+    nav.main-nav a button:hover {
+      background:#c94c4c;transform:translateY(-3px);
+    }
+    nav.lang-switcher {
+      background:#fceef1;padding:10px;margin:10px 0;border-radius:10px;text-align:center;
+    }
+    nav.lang-switcher button {
+      background:#fff5e1;border:2px solid #80263a;color:#80263a;
+      padding:8px 16px;margin:0 5px;border-radius:20px;cursor:pointer;transition:0.3s;
+    }
+    nav.lang-switcher button:hover { background:#f7cac9; }
+    .container {
+      max-width:1000px;margin:auto;padding:0 20px;
+    }
+    h2 { text-align:center;color:#80263a;margin-bottom:20px; }
+    .filter-box { text-align:center;margin-bottom:20px; }
+    .filter-box select {
+      padding:10px;border-radius:10px;font-size:16px;
+    }
+    .event {
+      background:#fff5f7;border:1px solid #f3d1d8;
+      padding:20px;border-radius:10px;margin-bottom:15px;
+    }
+    .event h3 { color:#7a1f3d;margin:0 0 5px; }
+    .event p { margin:5px 0; }
+    .event a { color:#80263a;text-decoration:underline; }
+    form {
+      background:#fff5e1;padding:20px;border-radius:12px;margin-top:40px;
+    }
+    form input, form select {
+      width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:6px;
+    }
+    form button {
+      background:#80263a;color:white;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;
+    }
+    .bm { display:none; }
+  </style>
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.en').forEach(el=>el.style.display=lang==='en'?'block':'none');
+      document.querySelectorAll('.bm').forEach(el=>el.style.display=lang==='bm'?'block':'none');
+    }
+    function showThankYou(e) {
+      e.preventDefault();
+      alert( " Thank you! Your registration has been received.");
+    }
+    function filterEvents(cat) {
+      document.querySelectorAll('.event').forEach(el=>{
+        el.style.display = (cat==='all'||el.classList.contains(cat))?'block':'none';
+      });
+    }
+    window.onload = () => switchLanguage('en');
+  </script>
+</head>
+<body>
+<div class="overlay">
+  <header>
+    <h1>Smart HealthCare Events</h1>
+    <nav class="main-nav">
+      <a href="index.html"><button>Home</button></a>
+      <a href="about.html"><button>About</button></a>
+      <a href="contact.html"><button>Contact</button></a>
+      <a href="services.html"><button>Services</button></a>
+      <a href="resources.html"><button>Resources</button></a>
+      <a href="ebook-sections.html"><button>ebook</button></a>
+      <a href="events.html"><button>Events</button></a>
+      <a href="Healthvideocollection.html"><button>Health Video Collections</button></a>
+      <a href="ai-chatbot.html"><button>AI Chatbot</button></a>
+    </nav>
+  </header>
+  <nav class="lang-switcher">
+    <button onclick="switchLanguage('en')">English</button>
+    <button onclick="switchLanguage('bm')">BM</button>
+  </nav>
+  <div class="container">
+    <h2 class="en">Upcoming Health Events</h2>
+    <h2 class="bm">Acara Kesihatan Akan Datang</h2>
+    <div class="filter-box">
+      <select onchange="filterEvents(this.value)">
+        <option value="all">All / Semua</option>
+        <option value="Nutrition">Nutrition / Pemakanan</option>
+        <option value="Vaccination">Vaccination / Vaksinasi</option>
+        <option value="Mental">Mental Health / Kesihatan Mental</option>
+        <option value="Digital">Digital / Digital</option>
+        <option value="Reproductive System Health"> Reproductive system Health/ kesihatan sistem reproduktif</option>
+        
+      </select>
+    </div>
+
+    <!-- 1 WHO Healthy Diet Webinar -->
+    <div class="event Nutrition">
+      <h3 class="en">1. Healthy Diet Webinar (WHO)</h3>
+      <h3 class="bm">1. Webinar Diet Sihat (WHO)</h3>
+      <p class="en">10 July 2025 – <a href="https://www.who.int/health-topics/healthy-diet" target="_blank">Learn more</a></p>
+      <p class="bm">10 Julai 2025 – <a href="https://www.who.int/health-topics/healthy-diet" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 2 CDC Vaccine Awareness -->
+    <div class="event Vaccination">
+      <h3 class="en">2. Vaccine Awareness (CDC)</h3>
+      <h3 class="bm">2. Kesedaran Vaksin (CDC)</h3>
+      <p class="en">15 July 2025 – <a href="https://www.cdc.gov/vaccines/index.html" target="_blank">Learn more</a></p>
+      <p class="bm">15 Julai 2025 – <a href="https://www.cdc.gov/vaccines/index.html" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 3 ADAA Mental Health -->
+    <div class="event Mental">
+      <h3 class="en">3. Mental Health Webinar (ADAA)</h3>
+      <h3 class="bm">3. Webinar Kesihatan Mental (ADDA)</h3>
+      <p class="en">20 July 2025 – <a href="https://adaa.org/resources-news/from-adaa-experts/webinars" target="_blank">Learn more</a></p>
+      <p class="bm">20 Julai 2025 – <a href="https://adaa.org/resources-news/from-adaa-experts/webinars" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 4 WHO Digital Health Tools -->
+    <div class="event Digital">
+      <h3 class="en">4. Digital Health Tools (WHO)</h3>
+      <h3 class="bm">4. Alat Kesihatan Digital (WHO)</h3>
+      <p class="en">7 May 2025 – <a href="https://www.who.int/news-room/events/detail/2025/05/07/default-calendar/webinar--using-digital-technologies-to-enhance-implementation-of-home-based-records----personal-health-records-for-maternal--newborn-and-child-health" target="_blank">Learn more</a></p>
+      <p class="bm">7 Mei 2025 – <a href="https://www.who.int/news-room/events/detail/2025/05/07/default-calendar/webinar--using-digital-technologies-to-enhance-implementation-of-home-based-records----personal-health-records-for-maternal--newborn-and-child-health" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 5 WHO Telemedicine Series -->
+    <div class="event Digital">
+      <h3 class="en">5. Telemedicine in Action (WHO SEARO)</h3>
+      <h3 class="bm">5. Telekesihatan Dalam Tindakan (WHO SEARO)</h3>
+      <p class="en">6 March 2025 – <a href="https://www.who.int/southeastasia/news/feature-stories/detail/who-launches-pioneering-webinar-series-to-strengthen-telemedicine-solutions-and-healthcare-systems" target="_blank">Learn more</a></p>
+      <p class="bm">6 Mac 2025 – <a href="https://www.who.int/southeastasia/news/feature-stories/detail/who-launches-pioneering-webinar-series-to-strengthen-telemedicine-solutions-and-healthcare-systems" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 6 WHO Telemedicine OECD -->
+    <div class="event Digital">
+      <h3 class="en">6. Telemedicine Best Practices (WHO Europe & OECD)</h3>
+      <h3 class="bm">6. Amalan Telekesihatan Terbaik (WHO/EU & OECD)</h3>
+      <p class="en">26 March 2025 – <a href="https://www.who.int/europe/news-room/events/item/2025/03/26/default-calendar/strengthening-telemedicine--sustainable-practices-and-policy-pathways-for-health-systems" target="_blank">Learn more</a></p>
+      <p class="bm">26 Mac 2025 – <a href="https://www.who.int/europe/news-room/events/item/2025/03/26/default-calendar/strengthening-telemedicine--sustainable-practices-and-policy-pathways-for-health-systems" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 7 WHO Digital Governance AI -->
+    <div class="event Digital">
+      <h3 class="en">7. Health Data Governance & AI</h3>
+      <h3 class="bm">7. Tadbir Urus Data & AI</h3>
+      <p class="en">28 May 2025 – <a href="https://www.who.int/europe/news-room/events/item/2025/05/28/default-calendar/health-data-governance-in-the-age-of-ai" target="_blank">Learn more</a></p>
+      <p class="bm">28 Mei 2025 – <a href="https://www.who.int/europe/news-room/events/item/2025/05/28/default-calendar/health-data-governance-in-the-age-of-ai" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 8 WHO Digital Determinants -->
+    <div class="event Digital">
+      <h3 class="en">8. Digital Determinants Webinar</h3>
+      <h3 class="bm">8. Webinar Determinan Digital</h3>
+      <p class="en">29 January 2025 – <a href="https://www.who.int/europe/news-room/events/item/2025/01/29/default-calendar/understanding-and-addressing-digital-determinants-of-health" target="_blank">Learn more</a></p>
+      <p class="bm">29 Januari 2025 – <a href="https://www.who.int/europe/news-room/events/item/2025/01/29/default-calendar/understanding-and-addressing-digital-determinants-of-health" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 9 WHO Digital Literacy -->
+    <div class="event Digital">
+      <h3 class="en">9. Digital Health Literacy</h3>
+      <h3 class="bm">9. Literasi Kesihatan Digital</h3>
+      <p class="en">21 November 2024 – <a href="https://www.who.int/europe/news-room/events/item/2024/11/21/default-calendar/strengthening-digital-health-literacy-to-empower-people-in-the-digital-age" target="_blank">Learn more</a></p>
+      <p class="bm">21 November 2024 – <a href="https://www.who.int/europe/news-room/events/item/2024/11/21/default-calendar/strengthening-digital-health-literacy-to-empower-people-in-the-digital-age" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 10 Menstrual Management Cycle Seminar-->
+    <div class="event Reproductive system health">
+      <h3 class="en">10. Menstrual Management Cycle Seminar</h3>
+      <h3 class="bm">10. Seminar Pengurusan Kitaran Haid</h3>
+      <p class="en">9 September 2025 – <a href="https://repromed.com.au/seminars/" target="_blank">Learn more</a></p>
+      <p class="bm">9 September 2025 - <a href= "https://repromed.com.au/seminars/" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 11 ADAA Fearful Flyer -->
+    <div class="event Mental">
+      <h3 class="en">11. Fearful Flyer Webinar</h3>
+      <h3 class="bm">11. Webinar 'Fearful Flyer'</h3>
+      <p class="en">2025 – <a href="https://adaa.org/webinar/consumer/plight-fearful-flyer-2025-and-how-overcome-it" target="_blank">Learn more</a></p>
+      <p class="bm">2025 – <a href="https://adaa.org/webinar/consumer/plight-fearful-flyer-2025-and-how-overcome-it" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 12 ADAA 2025 Conference -->
+    <div class="event Mental">
+      <h3 class="en">12. ADAA 2025 Conference</h3>
+      <h3 class="bm">12. Persidangan ADAA 2025</h3>
+      <p class="en">April 3–5, 2025 – <a href="https://adaa.org/calendar/adaa-2025-conference" target="_blank">Learn more</a></p>
+      <p class="bm">3–5 April 2025 – <a href="https://adaa.org/calendar/adaa-2025-conference" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 13 WHO Informatics -->
+    <div class="event Digital">
+      <h3 class="en">13. Global Health Informatics</h3>
+      <h3 class="bm">13. Informatik Kesihatan Global</h3>
+      <p class="en">28 March 2025 – <a href="https://www.who.int/news-room/events/detail/2025/03/28/default-calendar/global-health-informatics-webinar--who-update" target="_blank">Learn more</a></p>
+      <p class="bm">28 Mac 2025 – <a href="https://www.who.int/news-room/events/detail/2025/03/28/default-calendar/global-health-informatics-webinar--who-update" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 14 WHO Digital Reach -->
+    <div class="event Digital">
+      <h3 class="en">14. Reaching the Unreached</h3>
+      <h3 class="bm">14. Menjangkau Golongan Terpinggir</h3>
+      <p class="en">29 July 2024 – <a href="https://www.who.int/westernpacific/newsroom/events/detail/2024/07/29/default-calendar/using-digital-health-to-reach-the-unreached" target="_blank">Learn more</a></p>
+      <p class="bm">29 Julai 2024 – <a href="https://www.who.int/westernpacific/newsroom/events/detail/2024/07/29/default-calendar/using-digital-health-to-reach-the-unreached" target="_blank">Ketahui lanjut</a></p>
+    </div>
+    <!-- 15 ADAA Live Webinars -->
+    <div class="event Mental">
+      <h3 class="en">15. ADAA Live Webinars Series</h3>
+      <h3 class="bm">15. Siri Webinar Langsung ADAA</h3>
+      <p class="en">Ongoing – <a href="https://adaa.org/professionals/education/live-webinars" target="_blank">Learn more</a></p>
+      <p class="bm">Berkelanjutan – <a href="https://adaa.org/professionals/education/live-webinars" target="_blank">Ketahui lanjut</a></p>
+    </div>
+
+    <!-- Registration Form -->
+    <form onsubmit="showThankYou(event)">
+      <h3 class="en">Register for an Event</h3><h3 class="bm">Daftar untuk Acara</h3>
+      <input type="text" placeholder="Full Name / Nama Penuh" required>
+      <input type="text" placeholder="Phone or Email / No. Telefon atau Emel" required>
+      <select required>
+        <option value="">-- Select Event / Pilih Acara --</option>
+        <option>Healthy Diet Webinar</option>
+        <option>Vaccine Awareness</option>
+        <option>Mental Health Webinar</option>
+        <option>Digital Health Tools</option>
+        <option>Telemedicine in Action</option>
+        <option>Telemedicine Best Practices</option>
+        <option>Health Data Governance & AI</option>
+        <option>Digital Determinants Webinar</option>
+        <option>Digital Health Literacy</option>
+        <option>Menstrual Management Cycle Seminar</option>
+        <option>Fearful Flyer Webinar</option>
+        <option>ADAA 2025 Conference</option>
+        <option>Global Health Informatics</option>
+        <option>Reaching the Unreached</option>
+        <option>ADAA Live Webinars</option>
+      </select>
+      <button type="submit">Register / Daftar</button>
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
